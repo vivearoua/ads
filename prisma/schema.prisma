@@ -1,0 +1,44 @@
+// Schéma de base de données pour les petites annonces
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Annonce {
+  id               Int       @id @default(autoincrement())
+  titre            String
+  description      String
+  prix             Float
+  date_publication DateTime  @default(now())
+  url_annonce      String    @unique
+  categorie        Categorie @relation(fields: [categorieId], references: [id])
+  categorieId      Int
+  sousCategorie    SousCategorie? @relation(fields: [sousCategorieId], references: [id])
+  sousCategorieId  Int?
+  gouvernorat      String?
+  ville            String?
+  marque           String?
+  modeleId         Int?
+  typeServiceId    Int?
+}
+
+model Categorie {
+  id             Int       @id @default(autoincrement())
+  nom            String
+  url_categorie  String    @unique
+  sousCategories SousCategorie[]
+  annonces       Annonce[]
+}
+
+model SousCategorie {
+  id          Int       @id @default(autoincrement())
+  nom         String
+  slug        String?
+  categorie   Categorie @relation(fields: [categorieId], references: [id])
+  categorieId Int
+  annonces    Annonce[]
+}

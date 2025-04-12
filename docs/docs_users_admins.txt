@@ -1,0 +1,72 @@
+# Documentation : Gestion des utilisateurs et administrateurs (Users & Admins)
+# Objectif : Gérer les comptes utilisateurs, administrateurs, et leurs activités (logs).
+# Contexte : Ce groupement concerne l'authentification, les profils, et le suivi des actions.
+
+## Table : annonceurs
+- **Objectif** : Stocker les utilisateurs publiant des annonces.
+- **Champs clés** :
+  - id_annonceur (PK) : Identifiant unique.
+  - nom, tel, mail : Informations de contact.
+  - password : Mot de passe (hashé).
+  - etat_annonceur : Statut du compte.
+- **Utilisation** : Page de connexion (ex. : site.com/login) et profil (ex. : site.com/profil/[id_annonceur]).
+- **Relations** : Parent de `annonces`, `activation_annonceur`, `logaction`, `logcount`, `logpay`.
+
+## Table : activation_annonceur
+- **Objectif** : Suivre les activations de comptes annonceurs.
+- **Champs clés** :
+  - id_activation (PK) : Identifiant unique.
+  - id_annonceur : Utilisateur concerné.
+  - nbr_activation : Nombre d'activations.
+- **Utilisation** : Gestion interne (ex. : activation par e-mail).
+- **Relations** : Liée à `annonceurs`.
+
+## Table : admin
+- **Objectif** : Gérer les administrateurs du site.
+- **Champs clés** :
+  - id_admin (PK) : Identifiant unique.
+  - pseudo_admin, pwd_admin : Identifiants de connexion.
+  - droits_admin : Niveau d'accès.
+- **Utilisation** : Interface d'administration (ex. : site.com/admin).
+- **Relations** : Aucune relation directe.
+
+## Table : repertoire
+- **Objectif** : Répertoire des contacts (pour messagerie ou abus).
+- **Champs clés** :
+  - id (PK) : Identifiant unique.
+  - nom, email : Informations de contact.
+- **Utilisation** : Probablement pour la messagerie interne.
+- **Relations** : Parent de `abus` et `message`.
+
+## Table : logaction
+- **Objectif** : Enregistrer les actions des utilisateurs ou admins.
+- **Champs clés** :
+  - id (PK) : Identifiant unique.
+  - annonce_id : Annonce concernée.
+  - user_id : Utilisateur (probablement annonceur).
+  - action : Type d'action (ex. : "publication").
+- **Utilisation** : Suivi dans le tableau de bord (ex. : site.com/admin/logs).
+- **Relations** : Liée implicitement à `annonces` et `annonceurs`.
+
+## Table : logcount
+- **Objectif** : Statistiques des publications/suppressions par utilisateur.
+- **Champs clés** :
+  - id (PK) : Identifiant unique.
+  - user_id : Utilisateur concerné.
+  - nb_pub, nb_supp : Compteurs.
+- **Utilisation** : Statistiques utilisateur (ex. : site.com/profil/stats).
+- **Relations** : Liée implicitement à `annonceurs`.
+
+## Table : logpay
+- **Objectif** : Suivi des paiements des utilisateurs.
+- **Champs clés** :
+  - id (PK) : Identifiant unique.
+  - user_id : Utilisateur concerné.
+  - somme : Montant payé.
+  - echeance : Date limite.
+- **Utilisation** : Gestion des paiements (ex. : site.com/paiement).
+- **Relations** : Liée implicitement à `annonceurs`.
+
+## Notes
+- Préserver les URLs comme site.com/login, site.com/profil/[id_annonceur].
+- Les logs doivent rester accessibles via l'interface actuelle.

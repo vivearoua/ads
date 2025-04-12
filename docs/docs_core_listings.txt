@@ -1,0 +1,97 @@
+# Documentation : Noyau des annonces (Core Listings)
+# Objectif : Gestion des annonces principales et de leurs métadonnées (catégories, utilisateurs, géographie, etc.).
+# Contexte : Ce groupement contient les tables centrales du site d'annonces, probablement utilisées pour afficher les listes d'annonces, les filtres, et les détails.
+
+## Table : categories
+- **Objectif** : Stocker les catégories principales des annonces (ex. : Immobilier, Véhicules).
+- **Champs clés** :
+  - id_categorie (PK) : Identifiant unique.
+  - url_categorie : Slug pour l'URL (ex. : /immobilier).
+  - libelle_categorie : Nom affiché (ex. : "Immobilier").
+- **Utilisation** : Base pour les URLs de navigation (ex. : site.com/[url_categorie]) et les filtres de recherche.
+- **Relations** : Parent de `sous_categories` via `id_categorie`.
+
+## Table : sous_categories
+- **Objectif** : Définir des sous-catégories pour affiner les annonces (ex. : Appartements sous Immobilier).
+- **Champs clés** :
+  - id_sous_categorie (PK) : Identifiant unique.
+  - id_categorie : Lien vers la catégorie parente.
+  - url_sous_categorie : Slug pour l'URL (ex. : /immobilier/appartements).
+  - libelle_sous_categorie : Nom affiché.
+- **Utilisation** : URLs hiérarchiques (ex. : site.com/[url_categorie]/[url_sous_categorie]).
+- **Relations** : Liée à `categories` via `id_categorie`.
+
+## Table : annonceurs
+- **Objectif** : Gérer les utilisateurs publiant des annonces.
+- **Champs clés** :
+  - id_annonceur (PK) : Identifiant unique.
+  - nom, tel, mail : Informations de contact.
+  - password : Mot de passe (probablement hashé).
+  - etat_annonceur : Statut (F = inactif, T = actif).
+- **Utilisation** : Authentification et profil utilisateur. Liée aux annonces publiées.
+- **Relations** : Parent de `annonces` via `id_annonceur`.
+
+## Table : gouvernorats_be
+- **Objectif** : Stocker les régions géographiques principales (gouvernorats).
+- **Champs clés** :
+  - id_gouvernorat (PK) : Identifiant unique.
+  - libelle_gouvernorat : Nom de la région.
+  - url_gouvernorat : Slug pour l'URL (ex. : /tunis).
+- **Utilisation** : Filtres géographiques dans les annonces (ex. : site.com/[url_gouvernorat]).
+- **Relations** : Parent de `villes_be` via `id_gouvernorat`.
+
+## Table : villes_be
+- **Objectif** : Lister les villes dans chaque gouvernorat.
+- **Champs clés** :
+  - id_ville (PK) : Identifiant unique.
+  - libelle_ville : Nom de la ville.
+  - code_gouvernorat : Lien vers le gouvernorat parent.
+  - url_ville : Slug pour l'URL (ex. : /tunis/centre-ville).
+- **Utilisation** : URLs géographiques détaillées (ex. : site.com/[url_gouvernorat]/[url_ville]).
+- **Relations** : Liée à `gouvernorats_be` via `code_gouvernorat`.
+
+## Table : marques
+- **Objectif** : Gérer les marques associées aux annonces (ex. : marques de voitures).
+- **Champs clés** :
+  - id_marque (PK) : Identifiant unique.
+  - libelle_marque : Nom de la marque.
+  - url_marque : Slug pour l'URL (ex. : /voitures/toyota).
+  - categorie_marque : Catégorie associée (implicite).
+- **Utilisation** : Filtres par marque et pages spécifiques (ex. : site.com/[url_categorie]/[url_marque]).
+- **Relations** : Liée à `annonces` via `marque`, parent de `modele` via `id_marque`.
+
+## Table : modele
+- **Objectif** : Stocker les modèles liés aux marques (ex. : Toyota Corolla).
+- **Champs clés** :
+  - id (PK) : Identifiant unique.
+  - libelle : Nom du modèle.
+  - slug : Slug pour l'URL.
+  - categorie_id, marque_id : Liens vers catégorie et marque.
+- **Utilisation** : Pages détaillées (ex. : site.com/[url_categorie]/[url_marque]/[slug]).
+- **Relations** : Liée à `categories` et `marques`.
+
+## Table : type_service
+- **Objectif** : Définir les types de services (ex. : vente, location).
+- **Champs clés** :
+  - id (PK) : Identifiant unique.
+  - libelle_type_service : Nom du service.
+  - url_type_service : Slug pour l'URL.
+- **Utilisation** : Filtres spécifiques (ex. : site.com/[url_categorie]/vente).
+- **Relations** : Liée à `annonces` via `type_service_id`.
+
+## Table : annonces
+- **Objectif** : Stocker les annonces publiées par les utilisateurs.
+- **Champs clés** :
+  - id_annonce (PK) : Identifiant unique.
+  - titre_annonce : Titre affiché.
+  - url_annonce : Slug pour l'URL (ex. : /immobilier/appartement-tunis-123).
+  - id_annonceur : Auteur de l'annonce.
+  - id_categorie, id_sous_categorie : Catégorisation.
+  - gouvernorat, ville : Localisation.
+  - marque, modele_id, type_service_id : Attributs spécifiques.
+- **Utilisation** : Pages d'annonces (ex. : site.com/[url_annonce]).
+- **Relations** : Liée à `annonceurs`, `categories`, `sous_categories`, `gouvernorats_be`, `villes_be`, `marques`, `modele`, `type_service`.
+
+## Notes
+- Les URLs doivent rester inchangées (ex. : site.com/[url_categorie]/[url_annonce]).
+- Préserver les relations implicites pour les filtres et les pages dynamiques.
