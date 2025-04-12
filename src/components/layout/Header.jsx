@@ -28,6 +28,9 @@ const Header = () => {
             <Link to="/publier-annonce" className="text-gray-700 hover:text-primary-600">
               Publier une annonce
             </Link>
+            <Link to="/importer-annonces" className="text-gray-700 hover:text-primary-600">
+              Importer annonces (CSV)
+            </Link>
             <div className="relative group">
               <button className="text-gray-700 hover:text-primary-600">
                 Catégories

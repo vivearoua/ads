@@ -24,19 +24,21 @@ This file tracks all changes made to the project documentation and implementatio
 - Created section2.md with detailed tasks for User Management System implementation
 - Set up this changelog file to track all future modifications
 
-### Documentation Update - [Current Date]
+### Database and Documentation Update - [Current Date]
 
 **Changes:**
-- Updated documentation to reflect modern implementation with React, Tailwind CSS and PostgreSQL
-- Added technical details about the frontend architecture
-- Updated database schema descriptions
+- Added test data to database schema (Annonce, Categorie, SousCategorie models)
+- Updated documentation to include test data information
+- Added table mappings with @@map annotations
 
 **Files Modified:**
+- prisma/schema.prisma (updated)
 - section1.md (updated)
 - section2.md (updated)
 - changelog.md (updated)
 
 **Details:**
-- Updated section1.md with modern database implementation details
-- Updated section2.md with React-based authentication flow
+- Added sample data configuration in schema.prisma
+- Updated section1.md with test data section
+- Updated section2.md with test data references
 - Added this entry to changelog.md

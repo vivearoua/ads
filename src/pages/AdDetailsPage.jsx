@@ -85,7 +85,8 @@ const AdDetailsPage = () => {
         const adData = adsData.find(a => a.slug === adSlug && a.categorySlug === categorySlug)
         
         if (!adData) {
-          throw new Error('Annonce non trouvée')
+          console.error(`Annonce non trouvée - slug: ${adSlug}, categorySlug: ${categorySlug}`)
+          throw new Error(`L'annonce "${adSlug}" dans la catégorie "${categorySlug}" n'existe pas. Veuillez vérifier l'URL ou retourner à la page précédente.`)
         }
         
         setAd(adData)
@@ -104,7 +105,7 @@ const AdDetailsPage = () => {
         setSeller(sellerData)
       } catch (error) {
         console.error('Erreur lors du chargement de l\'annonce:', error)
-        setError('Une erreur est survenue lors du chargement de l\'annonce. Veuillez réessayer plus tard.')
+        setError(error.message || 'Une erreur est survenue lors du chargement de l\'annonce. Veuillez réessayer plus tard.')
       } finally {
         setLoading(false)
       }

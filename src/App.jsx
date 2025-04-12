@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage'
 import PublishAdPage from './pages/PublishAdPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+import ImportCSVPage from './pages/ImportCSVPage'
 import ProfilePage from './pages/ProfilePage'
 import CategoryPage from './pages/CategoryPage'
 import AdDetailsPage from './pages/AdDetailsPage'
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="publier-annonce" element={<PublishAdPage />} />
+          <Route path="importer-annonces" element={<ImportCSVPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="profil/:id" element={<ProfilePage />} />

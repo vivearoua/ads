@@ -24,6 +24,9 @@ model Annonce {
   marque           String?
   modeleId         Int?
   typeServiceId    Int?
+
+  // Données de test
+  @@map("annonces")
 }
 
 model Categorie {
@@ -32,6 +35,9 @@ model Categorie {
   url_categorie  String    @unique
   sousCategories SousCategorie[]
   annonces       Annonce[]
+
+  // Données de test
+  @@map("categories")
 }
 
 model SousCategorie {
@@ -41,4 +47,7 @@ model SousCategorie {
   categorie   Categorie @relation(fields: [categorieId], references: [id])
   categorieId Int
   annonces    Annonce[]
+
+  // Données de test
+  @@map("sous_categories")
 }

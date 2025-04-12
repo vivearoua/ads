@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // Configuration de base pour axios
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
+const API_URL = import.meta.env.VITE_API_URL
 
 // Création d'une instance axios avec une configuration de base
 const api = axios.create({
@@ -10,6 +10,8 @@ const api = axios.create({
     'Content-Type': 'application/json'
   }
 })
+
+export default api
 
 // Intercepteur pour ajouter le token d'authentification à chaque requête
 api.interceptors.request.use(
@@ -154,4 +156,37 @@ const locationsService = {
   }
 }
 
-export { api, annoncesService, categoriesService, locationsService }
+// Service pour l'authentification
+const authService = {
+  // Connexion
+  login: async (email, password) => {
+    try {
+      const response = await api.post('/auth/login', { email, password })
+      return response.data
+    } catch (error) {
+      throw error
+    }
+  },
+  
+  // Inscription
+  register: async (userData) => {
+    try {
+      const response = await api.post('/auth/register', userData)
+      return response.data
+    } catch (error) {
+      throw error
+    }
+  },
+  
+  // Réinitialisation du mot de passe
+  resetPassword: async (email) => {
+    try {
+      const response = await api.post('/auth/reset-password', { email })
+      return response.data
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export { api, annoncesService, categoriesService, locationsService, authService }

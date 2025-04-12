@@ -1,0 +1,41 @@
+titre,description,prix,categorie,sous_categorie,localisation,date,user_id
+Appartement 2 chambres à Bruxelles,"Bel appartement rénové avec 2 chambres, proche des transports et commerces",850,Immobilier,Appartements,Bruxelles,2023-09-15,1
+Volkswagen Golf 7 essence,"Golf 7 en parfait état, 45000 km, essence, année 2019",15900,Véhicules,Voitures,Liège,2023-09-14,2
+Canapé d'angle en cuir,"Canapé d'angle en cuir véritable, couleur marron, état impeccable",1200,Meubles,Canapés,Charleroi,2023-09-13,3
+Ordinateur portable HP,"HP EliteBook, i7, 16GB RAM, SSD 512GB, écran 15.6 pouces",950,Informatique,Ordinateurs,Namur,2023-09-12,4
+Vélo de course,"Vélo de course Cannondale, cadre carbone, groupe Shimano 105",1250,Sports,Vélos,Mons,2023-09-11,5
+Machine à laver,"Machine à laver Samsung, 8kg, classe A+++, silencieuse",450,Électroménager,Lave-linge,Tournai,2023-09-10,6
+Table à manger,"Table en chêne massif, 6 places, extensible jusqu'à 8 places",600,Meubles,Tables,Arlon,2023-09-09,7
+Smartphone iPhone 12,"iPhone 12 128GB, couleur bleu, état comme neuf",550,Informatique,Téléphones,Genk,2023-09-08,8
+Appareil photo Canon,"Canon EOS 2000D avec objectif 18-55mm, peu utilisé",400,Photo,Appareils photos,Hasselt,2023-09-07,9
+Chaise de bureau ergonomique,"Chaise de bureau avec support lombaire, réglable en hauteur",180,Bureau,Chaises,Seraing,2023-09-06,10
+Téléviseur LED 55","TV Samsung 55 pouces, 4K UHD, Smart TV",700,Électronique,Téléviseurs,Roeselare,2023-09-05,11
+Lave-vaisselle,"Lave-vaisselle Bosch, 12 couverts, silencieux",350,Électroménager,Lave-vaisselle,Verviers,2023-09-04,12
+Lit double,"Lit double 160x200, sommier à lattes, tête de lit en cuir",500,Meubles,Lits,Alost,2023-09-03,13
+Console PlayStation 5,"PS5 avec 2 manettes et 5 jeux inclus",450,Loisirs,Consoles de jeux,Tirlemont,2023-09-02,14
+Réfrigérateur américain,"Réfrigérateur Side by Side, 550L, distributeur de glaçons",900,Électroménager,Réfrigérateurs,Malines,2023-09-01,15
+Bureau en bois,"Bureau en chêne massif, 140x70cm, tiroir intégré",250,Bureau,Bureaux,Waremme,2023-08-31,16
+Cuisinière à gaz,"Cuisinière 5 feux, four électrique, inox",300,Électroménager,Cuisinières,La Louvière,2023-08-30,17
+Sac à main Louis Vuitton,"Sac Neverfull, couleur beige, authentique",850,Mode,Sacs,Louvain,2023-08-29,18
+Montre Rolex,"Rolex Datejust 36mm, acier et or, boîte d'origine",7500,Bijouterie,Montres,Anderlecht,2023-08-28,19
+Bague en diamant,"Bague en or blanc 18 carats avec diamant central 0.5 carat",1200,Bijouterie,Bagues,Saint-Gilles,2023-08-27,20
+Vélo électrique,"Vélo électrique Giant, autonomie 80km, assistance jusqu'à 25km/h",2200,Sports,Vélos électriques,Uccle,2023-08-26,21
+Tapis persan,"Tapis persan ancien, 200x300cm, laine pure",1800,Décoration,Tapis,Woluwe-Saint-Pierre,2023-08-25,22
+Piano droit,"Piano droit Yamaha, noir, excellent état",2500,Musique,Pianos,Ixelles,2023-08-24,23
+Guitare électrique,"Fender Stratocaster, couleur sunburst, étui inclus",600,Musique,Guitares,Forest,2023-08-23,24
+Bureau enfant,"Bureau réglable en hauteur pour enfant, blanc et bleu",120,Meubles,Bureaux enfants,Schaerbeek,2023-08-22,25
+Chaise haute bébé,"Chaise haute évolutive, convertible en chaise basse",80,Puériculture,Chaises hautes,Etterbeek,2023-08-21,26
+Poussette double,"Poussette double Joie, système de pliage facile",350,Puériculture,Poussettes,Woluwe-Saint-Lambert,2023-08-20,27
+Lit parapluie,"Lit parapluie pliant avec matelas, couleur grise",60,Puériculture,Lits bébés,Auderghem,2023-08-19,28
+Table à langer,"Table à langer avec baignoire intégrée, rangements",120,Puériculture,Tables à langer,Watermael-Boitsfort,2023-08-18,29
+Trotteur bébé,"Trotteur musical avec tableau d'activités",40,Puériculture,Trotteurs,Evere,2023-08-17,30
+Barbecue gaz,"Barbecue à gaz Weber, 3 brûleurs, couvercle",250,Jardin,Barbecues,Jette,2023-08-16,31
+Tondeuse à gazon,"Tondeuse électrique Bosch, 1500W, sac de ramassage",180,Jardin,Tondeuses,Ganshoren,2023-08-15,32
+Trampoline,"Trampoline de jardin Ø3m, filet de sécurité inclus",220,Jardin,Trampolines,Berchem-Sainte-Agathe,2023-08-14,33
+Piscine gonflable,"Piscine ronde 3m de diamètre, 80cm de profondeur",120,Jardin,Piscines,Molenbeek-Saint-Jean,2023-08-13,34
+Salon de jardin,"Salon de jardin en teck, 6 chaises, table extensible",800,Jardin,Salons de jardin,Koekelberg,2023-08-12,35
+Hammac,"Hammac double avec support métallique, couleur bleue",150,Jardin,Hammacs,Saint-Josse-ten-Noode,2023-08-11,36
+Brouette,"Brouette métallique, capacité 100L, pneu gonflable",70,Jardin,Brouettes,Anderlecht,2023-08-10,37
+Taille-haie,"Taille-haie électrique Black+Decker, 600W",90,Jardin,Taille-haies,Schaerbeek,2023-08-09,38
+Scie circulaire,"Scie circulaire sur table, 1500W, guide laser",120,Bricolage,Scies,Evere,2023-08-08,39
+Perceuse visseuse,"Perceuse-visseuse sans fil Bosch, 18V, 2 batteries",130,Bricolage,Perceuses,Woluwe-Saint-Pierre,2023-08-07,40

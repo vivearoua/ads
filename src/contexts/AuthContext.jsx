@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import api from '../services/api'
 
 const AuthContext = createContext(null)
 
@@ -43,7 +44,7 @@ export const AuthProvider = ({ children }) => {
       setError(null)
       
       // Appel à l'API pour l'authentification
-      const response = await axios.post('/api/auth/login', { email, password })
+      const response = await api.post('/auth/login', { email, password })
       const { token, user } = response.data
       
       // Stocker le token dans le localStorage
@@ -70,7 +71,7 @@ export const AuthProvider = ({ children }) => {
       setError(null)
       
       // Appel à l'API pour l'enregistrement
-      const response = await axios.post('/api/auth/register', userData)
+      const response = await api.post('/auth/register', userData)
       
       return response.data
     } catch (error) {
@@ -98,7 +99,7 @@ export const AuthProvider = ({ children }) => {
       setError(null)
       
       // Appel à l'API pour la réinitialisation du mot de passe
-      const response = await axios.post('/api/auth/reset-password', { email })
+      const response = await api.post('/auth/reset-password', { email})
       
       return response.data
     } catch (error) {
@@ -115,7 +116,7 @@ export const AuthProvider = ({ children }) => {
       setError(null)
       
       // Appel à l'API pour la mise à jour du profil
-      const response = await axios.put('/api/users/profile', userData)
+      const response = await api.put('/users/profile', userData)
       
       // Mettre à jour l'état de l'utilisateur
       setCurrentUser({ ...currentUser, ...response.data })

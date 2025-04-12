@@ -79,6 +79,10 @@ This section focuses on implementing the fundamental database structure for the 
 - Database server setup
 - User management system (partial dependency for annonceur relationship)
 
+## Test Data
+- Added sample data for Annonce, Categorie and SousCategorie models
+- Configured table mappings with @@map annotations
+
 ## Completion Criteria
 - All tables created with proper relationships
 - Test data successfully inserted
